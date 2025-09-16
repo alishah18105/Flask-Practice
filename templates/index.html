@@ -13,7 +13,7 @@
     <!-- Your navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Todo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
             </div>
 
         </form>
-        <div class="d-flex justify-content-end">
+        <div class="text-end">
             <button class="btn btn-primary" type="submit">Submit</button>
         </div>
     </div>
@@ -60,30 +60,23 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Sno.</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Created</th>
                 </tr>
             </thead>
             <tbody>
+                {% for todo in allTodo %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">{{todo.sno}}</th>
+                    <td>{{todo.title}}</td>
+                    <td>{{todo.desc}}</td>
+                    <td>{{todo.date_created}}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>@social</td>
+                {% endfor %}
+
+
                 </tr>
             </tbody>
         </table>
