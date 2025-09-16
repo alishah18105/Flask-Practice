@@ -42,53 +42,51 @@
         <h2>Add Todo</h2>
         <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="todoTitle" class="form-label">Todo Title</label>
+                <input type="text" class="form-control" id="todoTitle" aria-describedby="todoTitleHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="todoDescription" class="form-label">Todo Description</label>
+                <input type="text" class="form-control" id="todoDescription">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
         </form>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
     </div>
-    <div class = "container my-3">
+    <div class="container my-3">
         <h2>My Todos</h2>
         <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>John</td>
-      <td>Doe</td>
-      <td>@social</td>
-    </tr>
-  </tbody>
-</table>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>@social</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Bootstrap JS Bundle -->
