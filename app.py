@@ -35,11 +35,20 @@ def delete(sno):
     db.session.commit()
     return redirect("/")
 
-@app.route("/edit/<int:sno>")
+@app.route('/edit/<int:sno>', methods=['GET', 'POST'] )
 def edit(sno):
-    allTodo = Todo.query.all()
-    print(allTodo)
-    return "<p>Welcome To Our Shopping Mart!</p>"
+    todo = Todo.query.filter_by(sno=sno).first()
+    if request.method == "POST":
+
+        title = request.form["title"]
+        desc = request.form["desc"]
+        todo = Todo.query.filter_by(sno=sno).first()
+        todo.title = title
+        todo.desc = desc
+        db.session.add(todo)
+        db.session.commit()
+        return redirect("/")
+    return render_template('update.html',todo = todo)
 
 
 if __name__ == "__main__":
