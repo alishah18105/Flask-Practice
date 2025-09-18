@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+<!-- Your navbar -->
+{% block title %}
+Course Record
+{% endblock title %}
+{% block body %}
+
+
+<div class="container my-3">
+    <h2>Add New Course</h2>
+    <form action="/">
+        <div class="row mb-3">
+
+            <div class="col">
+                <label for="course_no" class="form-label">Course No</label>
+                <input type="text" class="form-control" id="course_no" name="course_no" required>
+                <div id="nameHelp" class="form-text">Eg. (SE-351)</div>
+            </div>
+
+
+            <div class="col">
+                <label for="course_name" class="form-label">Course Name</label>
+                <input type="text" class="form-control" id="course_name" name="course_name" required>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+    <div class="col-md-3">
+        <label for="credit_hours" class="form-label">Credit Hours</label>
+        <select class="form-select" id="credit_hours" name="credit_hours" required>
+            <option value="" selected disabled>Select Credit Hours</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+        </select>
+    </div>
+    <div class="col-md-3 ms-auto d-flex align-items-end justify-content-end">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</div>
+
+
+
+    </form>
+
+
+</div>
+<div class="container my-3">
+    <h2>Courses</h2>
+
+    <tbody>
+        {% if allTodo|length == 0 %}
+        <div class="alert alert-secondary my-3" role="alert">
+            No Task found.. Add your first todo
+        </div>
+
+        {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Sno.</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Created</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+            {% for todo in allTodo %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.date_created}}</td>
+                <td>
+                    <a href="/edit/{{todo.sno}}" type="button" class="btn btn-outline-primary btn-sm mx-1">Edit</a>
+                    <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+
+
+            </tr>
+    </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+{% endblock body %}

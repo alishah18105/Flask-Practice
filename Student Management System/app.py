@@ -11,34 +11,14 @@ SECRET_KEY = os.urandom(24)
 @app.route('/')
 
 def Students():
-    return "<p>Student Record</p>"
-
-    # if request.method == "POST":
-
-    #     name = request.form["name"]
-    #     father_name = request.form["father_name"]
-    #     seat_number = request.form["seat_number"]
-    #     program = request.form["program"]
-    #     gender = request.form["gender"]
-
-
-    #     student = Student(name = name, 
-    #                       father_name = father_name
-    #                         seat_number = seat_number
-    #                         program = program
-    #                         gender = gender)
-
-    #     db.session.add(student)
-    #     db.session.commit()
-    # allTodo = Todo.query.all()
-    # return render_template('index.html',allTodo = allTodo)
+    return render_template('student_page.html')
 
 @app.route('/course')
-def Course_Information():
-    return "<p>Course Record</p>"
+def Course():
+    return render_template('course_page.html')
 
 @app.route('/student_info')
-def Student_Information():
+def Student_Info():
     return "<p>Student Information</p>"
 
 if __name__ == "__main__":
