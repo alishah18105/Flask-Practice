@@ -8,7 +8,7 @@ DCS Sudent Management System
 
 <div class="container my-4">
     <h2>Add Student Record</h2>
-    <form action="/">
+    <form action="/" method = "POST">
         <div class="row mb-3">
             <!-- Student Name -->
             <div class="col">
@@ -84,9 +84,9 @@ DCS Sudent Management System
                 <td>{{student.name}}</td>
                 <td>{{student.father_name}}</td>
                 <td>{{student.seat_number}}</td>
-                <td>{{student.seat_number}}</td>
                 <td>{{student.program}}</td>
                 <td>{{student.gender}}</td>
+                
             </tr>
             {% endfor %}
             {% endif %}
