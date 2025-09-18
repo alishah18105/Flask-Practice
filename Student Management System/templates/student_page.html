@@ -75,6 +75,7 @@ DCS Sudent Management System
                     <th scope="col">Seat Number</th>
                     <th scope="col">Program</th>
                     <th scope="col">Gender</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
 
@@ -86,7 +87,11 @@ DCS Sudent Management System
                 <td>{{student.seat_number}}</td>
                 <td>{{student.program}}</td>
                 <td>{{student.gender}}</td>
-                
+                <td>
+                        <a href="#" type="button" class="btn btn-outline-primary btn-sm mx-1">Edit</a>
+                        <a href="/delete/student/{{student.student_id}}" type="button"
+                            class="btn btn-outline-danger btn-sm mx-1">Delete</a>
+                    </td>
             </tr>
             {% endfor %}
             {% endif %}

@@ -59,6 +59,7 @@ Course Record
                     <th scope="col">Course No</th>
                     <th scope="col">Course Title</th>
                     <th scope="col">Credit Hours</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
 
@@ -68,6 +69,11 @@ Course Record
                 <td>{{course.course_no}}</td>
                 <td>{{course.course_name}}</td>
                 <td>{{course.credit_hours}}</td>
+                <td>
+                        <a href="#" type="button" class="btn btn-outline-primary btn-sm mx-1">Edit</a>
+                        <a href="/delete/course/{{course.course_id}}" type="button"
+                            class="btn btn-outline-danger btn-sm mx-1">Delete</a>
+                    </td>
                
             </tr>
             {% endfor %}

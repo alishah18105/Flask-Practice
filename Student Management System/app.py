@@ -55,5 +55,18 @@ def Course_Info():
 def Student_Info():
     return "<p>Student Information</p>"
 
+@app.route('/delete/student/<int:student_id>')
+def delete_Student(student_id):
+    student = Student.query.filter_by(student_id= student_id).first()
+    db.session.delete(student)
+    db.session.commit()
+    return redirect("/")
+
+@app.route('/delete/course/<int:course_id>')
+def delete_Course(course_id):
+    course = Course.query.filter_by(course_id= course_id).first()
+    db.session.delete(course)
+    db.session.commit()
+    return redirect("/course")
 if __name__ == "__main__":
     app.run(debug=True, port = 8000)
