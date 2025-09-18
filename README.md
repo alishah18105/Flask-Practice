@@ -24,16 +24,16 @@ A simple To-Do web app to practice Flask basics and CRUD operations.
 
 ### 📂 Project Structure  
 
-flask-todo/
-│── app.py
-│── requirements.txt
-│── instance/todo.db
-│── templates/
-│ ├── base.html
-│ ├── index.html
-│ └── update.html
-│── static/
-
+flask-todo/  
+│── app.py  
+│── requirements.txt  
+│── instance/todo.db  
+│── templates/  
+│ ├── base.html  
+│ ├── index.html  
+│ └── update.html  
+│── static/  
+ 
 ### 1️⃣ Clone Repository  
 ```bash
 git clone https://github.com/alishah18105/Flask-Practice
