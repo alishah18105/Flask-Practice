@@ -60,9 +60,9 @@ DCS Sudent Management System
     <h2>Students List</h2>
 
     <tbody>
-        {% if allTodo|length == 0 %}
+        {% if allStudents|length == 0 %}
         <div class="alert alert-secondary my-3" role="alert">
-            No Task found.. Add your first todo
+            No Student Found.. Add first student's detail
         </div>
 
         {% else %}
@@ -70,23 +70,23 @@ DCS Sudent Management System
             <thead>
                 <tr>
                     <th scope="col">Sno.</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Date Created</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Father Name</th>
+                    <th scope="col">Seat Number</th>
+                    <th scope="col">Program</th>
+                    <th scope="col">Gender</th>
                 </tr>
             </thead>
 
-            {% for todo in allTodo %}
+            {% for student in allStudents %}
             <tr>
                 <th scope="row">{{loop.index}}</th>
-                <td>{{todo.title}}</td>
-                <td>{{todo.desc}}</td>
-                <td>{{todo.date_created}}</td>
-                <td>
-                    <a href="/edit/{{todo.sno}}" type="button" class="btn btn-outline-primary btn-sm mx-1">Edit</a>
-                    <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</a>
-                </td>
+                <td>{{student.name}}</td>
+                <td>{{student.father_name}}</td>
+                <td>{{student.seat_number}}</td>
+                <td>{{student.seat_number}}</td>
+                <td>{{student.program}}</td>
+                <td>{{student.gender}}</td>
             </tr>
             {% endfor %}
             {% endif %}

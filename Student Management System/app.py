@@ -1,21 +1,26 @@
 import os
 from flask import Flask, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
+from models import Student, Course, db, Student_Info
 
 app = Flask(__name__)
-SQLALCHEMY_DATABASE_URI = "postgresql://postgres:ali@localhost:5432/Student_Management"
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-SECRET_KEY = os.urandom(24)
-#db = SQLAlchemy(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:ali@localhost:5432/Student_Management"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SECRET_KEY"] = os.urandom(24)
 
-@app.route('/')
+
+db.init_app(app)
+
+@app.route('/',methods=['GET', 'POST'] )
 
 def Students():
-    return render_template('student_page.html')
+    allStudents = Student.query.all()
+    return render_template('student_page.html',allStudents = allStudents)
 
-@app.route('/course')
-def Course():
-    return render_template('course_page.html')
+@app.route('/course',methods=['GET', 'POST'] )
+def Course_Info():
+    allCourses = Course.query.all()
+    return render_template('course_page.html',allCourses = allCourses)
 
 @app.route('/student_info')
 def Student_Info():

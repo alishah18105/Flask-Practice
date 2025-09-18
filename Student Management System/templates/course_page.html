@@ -38,20 +38,17 @@ Course Record
         <button class="btn btn-primary" type="submit">Submit</button>
     </div>
 </div>
-
-
-
     </form>
 
 
 </div>
-<div class="container my-3">
+<div class="container my-4">
     <h2>Courses</h2>
 
     <tbody>
-        {% if allTodo|length == 0 %}
+        {% if allCourses|length == 0 %}
         <div class="alert alert-secondary my-3" role="alert">
-            No Task found.. Add your first todo
+            No Course Details found.. Add your first course..
         </div>
 
         {% else %}
@@ -59,23 +56,19 @@ Course Record
             <thead>
                 <tr>
                     <th scope="col">Sno.</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Date Created</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Course No</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Credit Hours</th>
                 </tr>
             </thead>
 
-            {% for todo in allTodo %}
+            {% for course in allCourses %}
             <tr>
                 <th scope="row">{{loop.index}}</th>
-                <td>{{todo.title}}</td>
-                <td>{{todo.desc}}</td>
-                <td>{{todo.date_created}}</td>
-                <td>
-                    <a href="/edit/{{todo.sno}}" type="button" class="btn btn-outline-primary btn-sm mx-1">Edit</a>
-                    <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</a>
-                </td>
+                <td>{{course.course_no}}</td>
+                <td>{{course.course_name}}</td>
+                <td>{{course.credit_hours}}</td>
+               
             </tr>
             {% endfor %}
             {% endif %}

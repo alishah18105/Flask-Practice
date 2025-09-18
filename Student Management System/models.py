@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
-class Students(db.Model):
+class Student(db.Model):
     __tablename__ = "Student"   
     student_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
@@ -30,5 +30,5 @@ class Student_Info(db.Model):
     course_no = db.Column(db.String(20), db.ForeignKey("Course.course_no"), nullable=False)
     marks = db.Column(db.Integer, nullable=False)
 
-    student = db.relationship("Students", back_populates="student_info")
+    student = db.relationship("Student", back_populates="student_info")
     course = db.relationship("Course", back_populates="student_info")
