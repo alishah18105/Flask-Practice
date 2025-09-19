@@ -71,7 +71,7 @@ student-management/
    ```bash
    git clone https://github.com/alishah18105/Flask-Practice
    cd Flask-Practice
-````
+    ```
 
 2. **Create Virtual Environment**
 
