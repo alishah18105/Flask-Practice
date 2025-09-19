@@ -23,15 +23,15 @@ A simple To-Do web app to practice Flask basics and CRUD operations.
 - Bootstrap for responsive UI  
 
 ### 📂 Project Structure  
-Todo App/ 
-│── app.py
-│── requirements.txt
-│── instance/todo.db
-│── templates/
-│ ├── base.html
-│ ├── index.html
-│ └── update.html
-│── static/ 
+Todo App/  
+│── app.py  
+│── requirements.txt  
+│── instance/todo.db  
+│── templates/  
+│ ├── base.html  
+│ ├── index.html  
+│ └── update.html  
+│── static/   
 
 
 ---
@@ -53,30 +53,30 @@ Students can view their **proforma/marksheet** by entering their **Seat Number &
 
 ### 📂 Project Structure  
 
-student-management/
-│── app.py # Main Flask app
-│── models.py # SQLAlchemy models
-│── requirements.txt # Dependencies
-│── templates/
-│ ├── base.html
-│ ├── student_page.html
-│ ├── course_page.html
-│ ├── student_info_page.html
-│── static/
+student-management/  
+│── app.py # Main Flask app  
+│── models.py # SQLAlchemy models  
+│── requirements.txt # Dependencies  
+│── templates/  
+│ ├── base.html  
+│ ├── student_page.html  
+│ ├── course_page.html  
+│ ├── student_info_page.html  
+│── static/  
 
 ## ⚙️ Installation & Setup  
 
-1️⃣ Clone Repository  
+1️⃣ ** Clone Repository **
 ```bash
 git clone https://github.com/alishah18105/Flask-Practice
-cd Flask-Practice ```
+cd Flask-Practice 
 
-2️⃣ Create Virtual Environment
+2️⃣ ** Create Virtual Environment **
 ```bash 
 python -m venv venv
 source venv/bin/activate   # Linux/Mac  
-venv\Scripts\activate  ```    # Windows
+venv\Scripts\activate      # Windows
 
-3️⃣ Install Requirements
+3️⃣ ** Install Requirements **
 ```bash
-pip install -r requirements.txt```
+pip install -r requirements.txt
