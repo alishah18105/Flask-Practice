@@ -93,5 +93,4 @@ student-management/
    python app.py
    ```
 
-````
 
