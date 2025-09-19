@@ -23,18 +23,60 @@ A simple To-Do web app to practice Flask basics and CRUD operations.
 - Bootstrap for responsive UI  
 
 ### 📂 Project Structure  
+Todo App/ 
+│── app.py
+│── requirements.txt
+│── instance/todo.db
+│── templates/
+│ ├── base.html
+│ ├── index.html
+│ └── update.html
+│── static/ 
 
-flask-todo/  
-│── app.py  
-│── requirements.txt  
-│── instance/todo.db  
-│── templates/  
-│ ├── base.html  
-│ ├── index.html  
-│ └── update.html  
-│── static/  
- 
-### 1️⃣ Clone Repository  
+
+---
+
+## 📝 Project 2: Student Management System (Flask + SQLAlchemy + PostgreSQL)  
+
+A web-based system to manage student records, courses, marks, and grades.  
+Students can view their **proforma/marksheet** by entering their **Seat Number & Semester**.  
+
+### 🔹 Features  
+- Add new **Student**  
+- Add new **Course**  
+- View all students and courses  
+- Add **academic records** (marks for a course in a semester)  
+- Search student records by **Seat Number & Semester**  
+- Display student **marksheet (proforma)** with  
+  - Name, Father Name, Seat No, Semester  
+  - Course-wise table (Course No, Credit Hours, Marks, Grade, Grade Points)  
+
+### 📂 Project Structure  
+
+student-management/
+│── app.py # Main Flask app
+│── models.py # SQLAlchemy models
+│── requirements.txt # Dependencies
+│── templates/
+│ ├── base.html
+│ ├── student_page.html
+│ ├── course_page.html
+│ ├── student_info_page.html
+│── static/
+
+## ⚙️ Installation & Setup  
+
+1️⃣ Clone Repository  
 ```bash
 git clone https://github.com/alishah18105/Flask-Practice
-cd Todo App 
+cd Flask-Practice ```
+
+2️⃣ Create Virtual Environment
+```bash 
+python -m venv venv
+source venv/bin/activate   # Linux/Mac  
+venv\Scripts\activate  ```    # Windows
+
+3️⃣ Install Requirements
+```bash
+pip install -r requirements.txt```
