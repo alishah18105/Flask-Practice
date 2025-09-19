@@ -51,9 +51,54 @@ def Course_Info():
     return render_template('course_page.html', allCourses=allCourses)
 
 
-@app.route('/student_info')
-def Student_Info():
-    return "<p>Student Information</p>"
+
+@app.route('/student_info', methods=['GET', 'POST'])
+def Student_Information():
+    
+
+    if request.method == "POST":
+        if "add_record" in request.form:
+            
+            seat_number = request.form['seat_number']
+            semester = int(request.form['semester'])
+            course_no = request.form['course_no']
+            marks = int(request.form['marks'])
+
+            record = Student_Info(
+                seat_number=seat_number,
+                semester=semester,
+                course_no=course_no,
+                marks=marks
+            )
+            db.session.add(record)
+            db.session.commit()
+            return redirect('/student_info')
+
+        elif "search_record" in request.form:
+            # Form 2: Search student records
+            seat_number = request.form['search_seat_number']
+            semester = int(request.form['search_semester'])
+            student_info = db.session.query(
+                Student_Info,
+                Student.name,
+                Student.father_name,
+                Student_Info.course_no,
+                Student_Info.marks,
+                Course.credit_hours,
+                Student_Info.semester,
+                Student_Info.seat_number,
+
+                
+            ).join(Student, Student_Info.seat_number == Student.seat_number
+            ).join(Course, Student_Info.course_no == Course.course_no
+            ).filter(
+                Student_Info.seat_number == seat_number,
+                Student_Info.semester == semester
+            ).order_by(Student_Info.course_no).all()
+            return render_template('student_info_page.html', student_info=student_info)
+    return render_template('student_info_page.html')
+
+
 
 @app.route('/delete/student/<int:student_id>')
 def delete_Student(student_id):

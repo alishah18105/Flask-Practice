@@ -10,7 +10,6 @@ class Student(db.Model):
     program = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(1), nullable = False )
 
-    #student_info = db.relationship("Student_Info", back_populates="student")
 
 class Course(db.Model):
     __tablename__ = "Course"  # match your actual table name
@@ -19,7 +18,6 @@ class Course(db.Model):
     course_name = db.Column(db.String(100), nullable=False)
     credit_hours = db.Column(db.Integer, nullable=False)
 
-    #student_info = db.relationship("Student_Info", back_populates="course")
 
 
 class Student_Info(db.Model):
@@ -30,5 +28,4 @@ class Student_Info(db.Model):
     course_no = db.Column(db.String(20), db.ForeignKey("Course.course_no"), nullable=False)
     marks = db.Column(db.Integer, nullable=False)
 
-    #student = db.relationship("Student", back_populates="student_info")
-    #course = db.relationship("Course", back_populates="student_info")
+    
