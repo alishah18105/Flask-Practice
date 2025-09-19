@@ -7,9 +7,45 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:ali@localhost:5432/Student_Management"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = os.urandom(24)
-
-
 db.init_app(app)
+
+def calculate_grading_point(marks,credit_hours):
+    if marks >= 90:
+        return ['A+', round(credit_hours*4,1)]
+    elif 85 <= marks <= 89:
+        return ['A', round(credit_hours*4,1)]
+    elif 80 <= marks <= 84:
+        return ['A-', round(credit_hours*3.8,1)]
+    elif 75 <= marks <= 79:
+        return ['B+', round(credit_hours*3.4,1)]
+    elif 71 <= marks <= 74:
+        return ['B', round(credit_hours*3.0,1)]
+    elif 68<=  marks <= 70:
+        return ['B-', round(credit_hours*2.8,1)]
+    elif 64 <= marks <= 67:
+        return ['C+', round(credit_hours*2.4,1)]
+    elif 61 <= marks <= 63:
+        return ['C', round(credit_hours*2.0,1)]
+    elif 57 <= marks <= 60:
+        return ['C-', round(credit_hours*1.8,1)]
+    elif 53 <= marks <= 56:
+        return ['D+', round(credit_hours*1.4,1)]
+    elif 50 <= marks <= 52:
+        return ['D-', round(credit_hours*1.0,1)]
+    else:
+        return ['F', 0.0]
+    
+mark = 0
+def calculate_total_marks(marks):
+    global mark
+    mark+=marks
+    return mark
+g_p = 0
+def calculate_gpa(gpa):
+    global g_p
+    g_p+=gpa
+    return g_p
+
 
 @app.route('/',methods=['GET', 'POST'] )
 
@@ -95,7 +131,32 @@ def Student_Information():
                 Student_Info.seat_number == seat_number,
                 Student_Info.semester == semester
             ).order_by(Student_Info.course_no).all()
-            return render_template('student_info_page.html', student_info=student_info)
+            result = []
+            global g_p,mark
+            g_p = 0
+            mark = 0
+            for info in student_info:
+                grade,gp = calculate_grading_point(info.marks,info.credit_hours)
+                total_gpa = calculate_gpa(gp)
+                total_marks = calculate_total_marks(info.marks)
+                result.append({
+                        "course_no": info.course_no,
+                        "marks": info.marks,
+                        "semester": info.semester,
+                        "seat_number": info.seat_number,
+                        "name": info.name,
+                        "father_name": info.father_name,
+                        "credit_hours": info.credit_hours,
+                        "grade": grade,
+                        "gp": gp
+                })
+            print(total_marks,total_gpa)
+            total_gpa= round(total_gpa/18,2)
+
+
+
+            return render_template('student_info_page.html', student_info=result, marks = total_marks, gpa = total_gpa)
+            
     return render_template('student_info_page.html')
 
 
