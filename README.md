@@ -51,7 +51,7 @@ Students can view their **proforma/marksheet** by entering their **Seat Number &
   - Name, Father Name, Seat No, Semester  
   - Course-wise table (Course No, Credit Hours, Marks, Grade, Grade Points)  
 
-### 📂 Project Structure  
+### 📂 Project Structure 
 
 student-management/  
 │── app.py # Main Flask app  
@@ -64,23 +64,34 @@ student-management/
 │ ├── student_info_page.html  
 │── static/  
 
+
 ## ⚙️ Installation & Setup  
 
 1. **Clone Repository**
-  ```bash
-    git clone https://github.com/alishah18105/Flask-Practice
-    cd Flask-Practice
+   ```bash
+   git clone https://github.com/alishah18105/Flask-Practice
+   cd Flask-Practice
+````
 
 2. **Create Virtual Environment**
-  ```bash 
-python -m venv venv
-source venv/bin/activate   # Linux/Mac  
-venv\Scripts\activate      # Windows
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # Linux/Mac  
+   venv\Scripts\activate      # Windows
+   ```
 
 3. **Install Requirements**
-  ```bash
-pip install -r requirements.txt  
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 4. **Run Application**
-    ```bash
-    python app.py
+
+   ```bash
+   python app.py
+   ```
+
+````
+
