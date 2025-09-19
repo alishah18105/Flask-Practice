@@ -66,17 +66,17 @@ student-management/
 
 ## ⚙️ Installation & Setup  
 
-1️⃣ ** Clone Repository **
+1. ** Clone Repository **
 ```bash
 git clone https://github.com/alishah18105/Flask-Practice
 cd Flask-Practice 
 
-2️⃣ ** Create Virtual Environment **
+2. ** Create Virtual Environment **
 ```bash 
 python -m venv venv
 source venv/bin/activate   # Linux/Mac  
 venv\Scripts\activate      # Windows
 
-3️⃣ ** Install Requirements **
+3. ** Install Requirements **
 ```bash
 pip install -r requirements.txt
