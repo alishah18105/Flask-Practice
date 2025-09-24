@@ -47,7 +47,7 @@ def calculate_gpa(gpa):
     return g_p
 
 
-@app.route('/',methods=['GET', 'POST'] )
+@app.route('/home',methods=['GET', 'POST'] )
 
 def Students():
     
@@ -64,7 +64,18 @@ def Students():
         return redirect('/')  
 
     allStudents = Student.query.all()
+    
     return render_template('student_page.html',allStudents = allStudents)
+
+@app.route('/', )
+def LoginStudent():
+    return render_template('student_login_page.html')
+
+
+@app.route('/admin_portal',methods=['GET', 'POST'] )
+
+def adminPortal():
+    return render_template('admin_login_page.html')
 
 
 @app.route('/course', methods=['GET', 'POST'])

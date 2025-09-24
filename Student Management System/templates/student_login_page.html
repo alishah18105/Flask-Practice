@@ -1,0 +1,17 @@
+{% extends 'base_login_page.html' %}
+
+{% block heading %}
+Login As Student
+{% endblock heading %}
+
+{% block welcome %}
+      Student Portal      
+{% endblock welcome %}
+
+{% block paragraph %}
+If you're an admin    
+{% endblock paragraph %}
+
+{% block switch_button %}
+<a href="{{ url_for('adminPortal') }}" class="btn btn-outline-light btn-sm">Login as admin</a>
+{% endblock %}
